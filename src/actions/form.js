@@ -30,7 +30,7 @@ export const submitReview = (review, rate) => {
         dispatch({ type: "CREATE_REVIEW_COMPLETED", review: review });
       })
       .catch((e) => {
-        dispatch({ type: "CREATE_REVIEW_FAILED", error: e.response.data });
+        dispatch({ type: "CREATE_REVIEW_FAILED", error: e });
       });
   };
 };

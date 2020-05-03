@@ -11,7 +11,7 @@ export const getReviews = (page) => {
           dispatch({ type: "RETRIEVE_REVIEWS_COMPLETED", reviews: reviews });
         })
         .catch((e) => {
-          dispatch({ type: "RETRIEVE_REVIEWS_FAILED", error: e.response.data });
+          dispatch({ type: "RETRIEVE_REVIEWS_FAILED", error: e });
         });
     };
   };
@@ -25,7 +25,7 @@ export const getReviews = (page) => {
           dispatch({ type: "DELETE_REVIEW_COMPLETED", review: review });
         })
         .catch((e) => {
-          dispatch({ type: "DELETE_REVIEW_FAILED", error: e.response.data });
+          dispatch({ type: "DELETE_REVIEW_FAILED", error: e });
         });
     };
   };
