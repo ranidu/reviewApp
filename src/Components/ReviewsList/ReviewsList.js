@@ -45,7 +45,7 @@ class ReviewsList extends React.Component {
             {process.env.REACT_APP_PER_PAGE &&
             process.env.REACT_APP_PER_PAGE < count ? (
               <Pagination
-                count={Math.round(count / process.env.REACT_APP_PER_PAGE)}
+                count={Math.ceil(count / process.env.REACT_APP_PER_PAGE)}
                 variant="outlined"
                 onChange={this._handleNextPage}
               />
