@@ -43,7 +43,7 @@ class ReviewsList extends React.Component {
               <Typography variant="h6">{"No reviews found."}</Typography>
             )}
             {process.env.REACT_APP_PER_PAGE &&
-            process.env.REACT_APP_PER_PAGE < count ? (
+            Number(process.env.REACT_APP_PER_PAGE) < count ? (
               <Pagination
                 count={Math.ceil(count / process.env.REACT_APP_PER_PAGE)}
                 variant="outlined"
