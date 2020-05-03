@@ -41,11 +41,6 @@ class Review extends React.Component {
       deleteId: "",
     };
   }
-  componentDidUpdate = (prevProps, prevState) => {
-    if (prevProps.deleted !== this.props.deleted) {
-      this.props.getReviews(1);
-    }
-  };
   _handleConfirmationBoxOpen = (id) => {
     this.setState({ deleteId: id, confirmboxOpen: true });
   };
@@ -107,12 +102,6 @@ class Review extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    deleted: state.reviewReducer.deleted,
-  };
-};
-
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteReview: (id) => {
@@ -125,6 +114,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(
-  mapStateToProps,
+  '',
   mapDispatchToProps
 )(withStyles(styles)(Review));

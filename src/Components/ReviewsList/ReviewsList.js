@@ -25,6 +25,11 @@ class ReviewsList extends React.Component {
   _handleNextPage = (e, page) => {
     this.props.getReviews(page);
   };
+  componentDidUpdate = (prevProps, prevState) => {
+    if ((prevProps.deleted !== this.props.deleted) && !this.props.loading){
+      this.props.getReviews(1);
+    }
+  };
   componentDidMount = () => {
       this.props.getReviews(1);
   };
@@ -47,7 +52,7 @@ class ReviewsList extends React.Component {
               <Pagination
                 count={Math.ceil(count / process.env.REACT_APP_PER_PAGE)}
                 variant="outlined"
-                onChange={this._handleNextPage}
+                onChange={() =>this._handleNextPage()}
               />
             ) : (
               ""
@@ -75,6 +80,7 @@ const mapStateToProps = (state) => {
     error: state.reviewReducer.error,
     count: state.reviewReducer.count,
     waiting: state.formReducer.waiting,
+    deleted: state.reviewReducer.deleted,
   };
 };
 
